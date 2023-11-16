@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Input, Popconfirm, Table } from "antd";
+import { DataContext } from "@/provider/DataProvider";
 const EditableContext = React.createContext(null);
 
 const EditableRow = ({ index, ...props }) => {
@@ -85,7 +86,7 @@ const IncomeTable = () => {
     {
       key: "0",
       name: "Salário",
-      value:"1000",
+      value: "1000",
     },
     {
       key: "1",
@@ -94,6 +95,11 @@ const IncomeTable = () => {
     },
   ]);
   const [count, setCount] = useState(2);
+  const {setIncomeValues} = React.useContext(DataContext);
+  
+  useEffect(()=>{
+    setIncomeValues(dataSource)
+  },[dataSource])
 
   const handleDelete = (key) => {
     const newData = dataSource.filter((item) => item.key !== key);
@@ -111,7 +117,6 @@ const IncomeTable = () => {
       title: "Valor",
       dataIndex: "value",
       editable: true,
-
     },
     {
       title: "Operação",
@@ -127,6 +132,7 @@ const IncomeTable = () => {
         ) : null,
     },
   ];
+
   const handleAdd = () => {
     const newData = {
       key: count,
@@ -167,6 +173,7 @@ const IncomeTable = () => {
       }),
     };
   });
+
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -175,7 +182,7 @@ const IncomeTable = () => {
           type="primary"
           style={{
             marginBottom: 16,
-            background:"green"
+            background: "green",
           }}
         >
           Adicionar

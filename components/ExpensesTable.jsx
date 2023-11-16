@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Button, Form, Input, Popconfirm, Table } from "antd";
+import { DataContext } from "@/provider/DataProvider";
 const EditableContext = React.createContext(null);
 
 const EditableRow = ({ index, ...props }) => {
@@ -94,6 +95,11 @@ const ExpensesTable = () => {
     },
   ]);
   const [count, setCount] = useState(2);
+  const {setExpensesValues} = React.useContext(DataContext);
+  
+  useEffect(()=>{
+    setExpensesValues(dataSource)
+  },[dataSource])
 
   const handleDelete = (key) => {
     const newData = dataSource.filter((item) => item.key !== key);
