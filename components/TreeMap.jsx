@@ -80,7 +80,7 @@ export const TreeMap = () => {
           // flexWrap: "wrap",
         }}
       >
-        {incomeValues.length > 1 &&
+        {incomeValues.length > 0 &&
           incomeValues.map((subcategory) => (
             <div
               key={subcategory.key}
@@ -106,7 +106,7 @@ export const TreeMap = () => {
           // flexWrap: "wrap",
         }}
       >
-        {expensesValues.length > 1 &&
+        {expensesValues.length > 0 &&
           expensesValues.map((subcategory, index) => (
             <div
               key={subcategory.key}
