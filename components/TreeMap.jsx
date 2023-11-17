@@ -82,6 +82,7 @@ export const TreeMap = () => {
                 flex: `${calculatePercentage(subcategory.value, totalIncome)}%`,
                 ...calculateColor(subcategory.value, true),
                 border: "1px solid black",
+                padding:'12px'
               }}
             >
               {subcategory.name}
@@ -110,6 +111,7 @@ export const TreeMap = () => {
                 )}%`,
                 ...calculateColor(subcategory.value, false),
                 border: "1px solid black",
+                padding:'12px'
               }}
             >
               {subcategory.name}
