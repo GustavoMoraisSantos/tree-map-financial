@@ -45,7 +45,7 @@ export const TreeMap = () => {
     // Define a cor base para recebimentos e gastos
     const baseColor = isIncome ? [0, 255, 0] : [255, 0, 0];
 
-    const opacity = 0.2 + (0.8 * value / 1000); 
+    const opacity = 0.2 + (0.8 * value) / 1000;
 
     const finalColor = [...baseColor, opacity];
 
@@ -53,6 +53,12 @@ export const TreeMap = () => {
       background: `rgba(${finalColor.join(",")})`,
     };
   };
+
+  const formattedValue = (value) =>
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(value);
 
   return (
     <div
@@ -70,8 +76,8 @@ export const TreeMap = () => {
           display: "flex",
           border: "1px solid black",
           flexDirection: "column",
-            // flexDirection: "row",
-            // flexWrap: "wrap",
+          // flexDirection: "row",
+          // flexWrap: "wrap",
         }}
       >
         {incomeValues.length > 1 &&
@@ -82,10 +88,10 @@ export const TreeMap = () => {
                 flex: `${calculatePercentage(subcategory.value, totalIncome)}%`,
                 ...calculateColor(subcategory.value, true),
                 border: "1px solid black",
-                padding:'12px'
+                padding: "12px",
               }}
             >
-              {subcategory.name}
+              {subcategory.name} - {formattedValue(subcategory.value)}
             </div>
           ))}
       </div>
@@ -95,7 +101,7 @@ export const TreeMap = () => {
           flex: `${expensePercentage}%`,
           border: "1px solid black",
           display: "flex",
-            flexDirection: "column",
+          flexDirection: "column",
           // flexDirection: "row",
           // flexWrap: "wrap",
         }}
@@ -111,14 +117,13 @@ export const TreeMap = () => {
                 )}%`,
                 ...calculateColor(subcategory.value, false),
                 border: "1px solid black",
-                padding:'12px'
+                padding: "12px",
               }}
             >
-              {subcategory.name}
+              {subcategory.name} - {formattedValue(subcategory.value)}
             </div>
           ))}
       </div>
-
     </div>
   );
 };
