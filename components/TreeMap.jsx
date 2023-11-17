@@ -41,22 +41,82 @@ export const TreeMap = () => {
   console.log("Porcentagem de Entradas:", incomePercentage);
   console.log("Porcentagem de Gastos:", expensePercentage);
 
-  const incomeContainerStyle = {
-    width: `${incomePercentage}%`,
-    background: "green",
-    height: "100%", 
-  };
+  const calculateColor = (value, isIncome) => {
+    // Define a cor base para recebimentos e gastos
+    const baseColor = isIncome ? [0, 255, 0] : [255, 0, 0];
 
-  const expenseContainerStyle = {
-    width: `${expensePercentage}%`,
-    background: "red",
-    height: "100%",
+    const opacity = 0.2 + (0.8 * value / 1000); 
+
+    const finalColor = [...baseColor, opacity];
+
+    return {
+      background: `rgba(${finalColor.join(",")})`,
+    };
   };
 
   return (
-    <div style={{ display: 'flex', width: '100%', height: '100vh', background: 'whitesmoke' }}>
-    <div style={incomeContainerStyle}>Entradas</div>
-    <div style={expenseContainerStyle}>Gastos</div>
-  </div>
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        height: "100vh",
+        background: "whitesmoke",
+      }}
+    >
+      {/* ------ RENDIMENTOS ----- */}
+      <div
+        style={{
+          flex: `${incomePercentage}%`,
+          display: "flex",
+          border: "1px solid black",
+          flexDirection: "column",
+            // flexDirection: "row",
+            // flexWrap: "wrap",
+        }}
+      >
+        {incomeValues.length > 1 &&
+          incomeValues.map((subcategory) => (
+            <div
+              key={subcategory.key}
+              style={{
+                flex: `${calculatePercentage(subcategory.value, totalIncome)}%`,
+                ...calculateColor(subcategory.value, true),
+                border: "1px solid black",
+              }}
+            >
+              {subcategory.name}
+            </div>
+          ))}
+      </div>
+
+      <div
+        style={{
+          flex: `${expensePercentage}%`,
+          border: "1px solid black",
+          display: "flex",
+            flexDirection: "column",
+          // flexDirection: "row",
+          // flexWrap: "wrap",
+        }}
+      >
+        {expensesValues.length > 1 &&
+          expensesValues.map((subcategory, index) => (
+            <div
+              key={subcategory.key}
+              style={{
+                flex: `${calculatePercentage(
+                  subcategory.value,
+                  totalExpense
+                )}%`,
+                ...calculateColor(subcategory.value, false),
+                border: "1px solid black",
+              }}
+            >
+              {subcategory.name}
+            </div>
+          ))}
+      </div>
+
+    </div>
   );
 };

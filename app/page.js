@@ -31,7 +31,6 @@ export default function App() {
             </p>
           </div>
           <TreeMap/>
-        
           <MainDrawer isOpen={isOpen} onCloseDrawer={onClose} />
         </div>
       </div>
