@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Live Preview: [Dynamic Financial TreeMap](https://tree-map-financial.vercel.app/)
 
-## Getting Started
+# Dynamic Financial TreeMap
 
-First, run the development server:
+Welcome to the Dynamic Financial TreeMap! This project allows users to dynamically visualize their financial data using a TreeMap.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The TreeMap is a powerful data visualization technique that represents hierarchical data as nested rectangles. In this project, we focus on providing an interactive way to view and manage financial entries and expenses.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Interactive TreeMap:** Visualize and manage your financial data using an interactive TreeMap.
+- **Dynamic Data Entry:** Easily add, update, and delete income and expenses for real-time visualization.
+- **Percentage Tracking:** Monitor the percentage distribution of income and expenses.
 
-## Learn More
+## How to Run
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone this repository.
+2. Install dependencies: `npm install`.
+3. Run the development server: `npm run dev`.
+4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [React](https://reactjs.org/): A declarative, efficient, and flexible JavaScript library for building user interfaces.
 
-## Deploy on Vercel
+## How to Contribute
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you want to contribute to the project, follow these steps:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Fork the repository.
+2. Create a branch for your feature (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a Pull Request.
+
+## Deployment
+
+The project is deployed on [Vercel](https://vercel.com/). You can explore the live preview [here](https://tree-map-financial.vercel.app/).
+
+## Acknowledgments
+
+- TreeMap concept inspired by data visualization principles.
+
+Feel free to explore the code, contribute, and customize it according to your financial needs. Happy coding!
